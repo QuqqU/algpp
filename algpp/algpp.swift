@@ -12,7 +12,7 @@ enum OptionType: String {
     case abc = "1234"
 }
 
-class Algcc {
+class Algpp {
     
     private let consoleIO = ConsoleIO()
     let argc = CommandLine.argc
@@ -30,7 +30,6 @@ class Algcc {
         gpp.executableURL = URL(fileURLWithPath: "/usr/bin/g++")
         gpp.arguments = ["-o", outFile, sourceFile]
         gpp.standardOutput = pipe
-        gpp.standardError = pipe
         
         do {
             try gpp.run()
@@ -38,31 +37,32 @@ class Algcc {
             
             let data = pipe.fileHandleForReading.readDataToEndOfFile()
             if let output = String(data: data, encoding: String.Encoding.utf8) {
-                if !output.isEmpty { consoleIO.printMessage(output, type: .stdError) }
-                else {
-                    
-                    let execFile = Process()
-                    let execPipe = Pipe()
-                    print("-------")
-                    execFile.executableURL = URL(fileURLWithPath: "/Users/jungkiung/Desktop/cli/aaa")
-                    //execFile.standardInput = URL(fileURLWithPath: "/Users/jungkiung/Desktop/cli/input.txt")
-                    execFile.standardInput = FileHandle(forReadingAtPath: "/Users/jungkiung/Desktop/cli/input.txt")
-                    execFile.standardOutput = execPipe
-                    print("-------")
-                    do{
-                        try execFile.run()
-                        let dataa = execPipe.fileHandleForReading.readDataToEndOfFile()
-                        let outp = String(data: dataa, encoding: String.Encoding.utf8)
-                        consoleIO.printMessage(outp!, type: .stdOutput)
-                        print("-------")
-                    }catch{}
-                }
+                if output.isEmpty { runOutFile(outFile: outFile) }
+                else { consoleIO.printMessage(output, type: .stdError) }
             }
         }
-        catch {
-            consoleIO.printMessage("something wrong..... not developed yet", type: .stdError)
-        }
+        catch { consoleIO.printMessage("g++: something wrong when g++'s running", type: .stdError) }
         
+    }
+    
+    func runOutFile(outFile: String) {
+        print("----")
+        let out = Process()
+        let pipe = Pipe()
+        
+        out.executableURL = URL(fileURLWithPath: "./\(outFile)")
+        out.standardInput = FileHandle(forReadingAtPath: "./input.txt")
+        out.standardOutput = pipe
+
+        do {
+            try out.run()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            if let result = String(data: data, encoding: String.Encoding.utf8) {
+                if !result.isEmpty { consoleIO.printMessage(result, type: .stdOutput) }
+                else { consoleIO.printMessage("\(outFile): check format of input", type: .stdError) }
+            }
+        }
+        catch { consoleIO.printMessage("\(outFile): Something wrong when it's running", type: .stdError) }
     }
     
 }

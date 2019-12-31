@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6731A4DC23BB6D050009FB5A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731A4DB23BB6D050009FB5A /* main.swift */; };
 		6731A4E323BB6DA70009FB5A /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731A4E223BB6DA70009FB5A /* ConsoleIO.swift */; };
 		6731A4E523BB6DC30009FB5A /* algpp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731A4E423BB6DC30009FB5A /* algpp.swift */; };
+		6731A4EA23BBB4550009FB5A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731A4DB23BB6D050009FB5A /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +29,8 @@
 		6731A4DB23BB6D050009FB5A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6731A4E223BB6DA70009FB5A /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
 		6731A4E423BB6DC30009FB5A /* algpp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algpp.swift; sourceTree = "<group>"; };
+		67701A7D23BBC1EB00537B09 /* test2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test2.cpp; path = DerivedData/Products/Debug/test2.cpp; sourceTree = "<group>"; };
+		67701A7E23BBC1EB00537B09 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = input.txt; path = DerivedData/Products/Debug/input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 		6731A4CF23BB6D050009FB5A = {
 			isa = PBXGroup;
 			children = (
+				67701A7C23BBC18700537B09 /* test */,
 				6731A4DA23BB6D050009FB5A /* algpp */,
 				6731A4D923BB6D050009FB5A /* Products */,
 			);
@@ -66,6 +69,15 @@
 				6731A4E423BB6DC30009FB5A /* algpp.swift */,
 			);
 			path = algpp;
+			sourceTree = "<group>";
+		};
+		67701A7C23BBC18700537B09 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				67701A7E23BBC1EB00537B09 /* input.txt */,
+				67701A7D23BBC1EB00537B09 /* test2.cpp */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +112,7 @@
 				TargetAttributes = {
 					6731A4D723BB6D050009FB5A = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -126,9 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6731A4DC23BB6D050009FB5A /* main.swift in Sources */,
 				6731A4E323BB6DA70009FB5A /* ConsoleIO.swift in Sources */,
 				6731A4E523BB6DC30009FB5A /* algpp.swift in Sources */,
+				6731A4EA23BBB4550009FB5A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,10 +264,17 @@
 		6731A4E023BB6D050009FB5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG64MCHQ4X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -262,9 +282,15 @@
 		6731A4E123BB6D050009FB5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG64MCHQ4X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

@@ -9,8 +9,8 @@
 //#!/usr/bin/env swift
 import Foundation
 
-let algcc = Algcc()
-//algcc.printUsage()
+let algpp = Algpp()
+algpp.printUsage()
 print(CommandLine.arguments)
-algcc.runGPP(sourceFile: CommandLine.arguments[1] as String)
+algpp.runGPP(sourceFile: CommandLine.arguments[1] as String)
 
