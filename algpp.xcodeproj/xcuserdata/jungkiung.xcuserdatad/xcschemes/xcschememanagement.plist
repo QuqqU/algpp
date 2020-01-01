@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>UnitTest.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>algpp on Terminal.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6731A4D723BB6D050009FB5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67701A8223BC9C9800537B09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
