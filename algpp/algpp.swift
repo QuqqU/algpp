@@ -46,7 +46,6 @@ class Algpp {
     }
     
     func runOutFile(outFile: String) {
-        print("----")
         let out = Process()
         let pipe = Pipe()
         
